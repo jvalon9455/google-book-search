@@ -21,10 +21,12 @@ const Search = () => {
   };
 
   return (
-    <div>
-      <form style={{ border: "0.5px solid black", marginBottom: "1%" }}>
+    <div className="container">
+      <div className="jumbotron">
+        <h1 className="text-center">Search Here For Books</h1>
+      <form>
         <div className="form-group">
-          <label for="title">Title</label>
+          <label for="title">Input Title</label>
           <input
             type="text"
             className="form-control"
@@ -33,14 +35,15 @@ const Search = () => {
             onChange={handleInputChange}
           />
         </div>
-        <button type="submit" onClick={handleSubmit}>
-          Submit
+        <button type="submit" className="btn badge-pill btn-outline-dark mt-3" onClick={handleSubmit}>
+          Search Book
         </button>
       </form>
+      </div>
       <div className="container">
         <h3>Results:</h3>
         <div className="row">
-          <div className="col-12">
+          <div className="col-9">
             {results.map((res) => (
               <Result
                 key={res.selfLink}

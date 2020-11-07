@@ -20,28 +20,38 @@ const Result = (props) => {
     });
   };
   const handleView = (e) => {
-    let path =state.link;
+    let path = state.link;
     window.open(path);
   };
 
   return (
-     <div style={{ border: "1px solid black", position: "relative" }}>
-       <img src={props.image} />
-      <p>{props.title}</p>
-      <p>{props.authors}</p>
-      <p>{props.description}</p>
-      <button
-        onClick={handleSave}
-        style={{ position: "absolute", top: "0", right: "5%" }}
-      >
-        Save
+    <div>
+      <div className="card mb-4">
+        <div className="row">
+          <div className="col-md-3">
+            <img alt={props.title} className="img-fluid" src={props.image} />
+          </div>
+          <div className="col-md-9">
+            <div className="card-body">
+              <h5 className="card-title">{props.title} by: {props.authors}</h5>
+              <p>{props.description}</p>
+            </div>
+            <button
+              onClick={handleSave}
+              className="btn badge-pill btn-outline-warning mt-3 ml-3"
+            >
+              Save
+            </button>
+            <button
+              onClick={handleView}
+              className="btn badge-pill btn-outline-dark mt-3"
+            >
+              View
       </button>
-      <button
-        onClick={handleView}
-        style={{ position: "absolute", top: "0", right: "0" }}
-      >
-        View
-      </button>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

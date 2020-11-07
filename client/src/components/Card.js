@@ -17,28 +17,25 @@ const Card = (props) => {
     window.open(path);
   };
   return (
-    <div
-      className="row"
-      style={{ border: "1px solid black", position: "relative" }}
-    >
-      <div className="col-12">
-        <img src={props.image} style={{ float: "left" }} />
-        <h4>{props.title}</h4>
-        <h5>{props.authors}</h5>
-        <p>{props.description}</p>
-        <button
-          id={props.id}
-          onClick={handleDelete}
-          style={{ position: "absolute", top: "0", right: "0" }}
-        >
-          Delete
-        </button>
-        <button
-          onClick={handleView}
-          style={{ position: "absolute", top: "0", right: "5.5%" }}
-        >
-          View
-        </button>
+    <div>
+      <div className="card mb-3">
+        <div className="row">
+          <div className="col-md-2">
+            <img alt={props.title} className="img-fluid" src={props.image} />
+          </div>
+          <div className="col-md-10">
+            <div className="card-body">
+              <h5 className="card-title">{props.title} by: {props.authors}</h5>
+              <p>{props.description}</p>
+            </div>
+            <button
+              onClick={handleView}
+              className="btn badge-pill btn-outline-dark mt-3">View</button>
+            <button
+              onClick={handleDelete}
+              className="btn badge-pill btn-outline-warning mt-3 ml-3">Delete</button>
+          </div>
+        </div>
       </div>
     </div>
   );
