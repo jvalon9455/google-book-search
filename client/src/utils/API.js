@@ -6,4 +6,7 @@ export default {
   getBook: function (term) {
     return axios.get(url + term);
   },
+  getAllBooks: function () {
+    return axios.get("/api/books");
+  },
 };

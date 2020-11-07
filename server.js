@@ -10,7 +10,11 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/google-book-search", {
+
+app.use(express.static("client/build"));
+
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooksDb", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -27,11 +31,18 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+const booksController = require("./controllers/booksController");
+app.use(booksController);
+
 app.get("/api/config", (req, res) => {
   res.json({
     success: true,
   });
 });
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  });
 
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`);
