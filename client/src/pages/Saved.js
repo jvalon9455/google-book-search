@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { set } from "mongoose";
+import Card from "../components/Card";
 
 const Saved = () => {
   const [allBooks, setAllBooks] = useState([]);
@@ -13,12 +13,19 @@ const Saved = () => {
   }, []);
 
   return (
-    <div>
-      {allBooks.map((i) => (
-        <>
-        <p>{i.title}</p>
-        <p>{i.authors}</p>
-        </>
+    <div
+      className="container"
+      style={{ background: "lightgray", position: "relative" }}
+    >
+      {allBooks.map((book) => (
+        <Card
+          title={book.title}
+          authors={book.authors}
+          description={book.description}
+          link={book.link}
+          image={book.image}
+          id={book._id}
+        />
       ))}
     </div>
   );

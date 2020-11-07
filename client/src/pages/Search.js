@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../utils/API";
-import Result from "./Result";
+import Result from "../components/Result";
 
 const Search = () => {
   const [titleState, setTitleState] = useState("");
@@ -23,11 +23,11 @@ const Search = () => {
   return (
     <div>
       <form style={{ border: "0.5px solid black", marginBottom: "1%" }}>
-        <div class="form-group">
+        <div className="form-group">
           <label for="title">Title</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             name="title"
             value={titleState}
             onChange={handleInputChange}
@@ -43,10 +43,11 @@ const Search = () => {
           <div className="col-12">
             {results.map((res) => (
               <Result
+                key={res.selfLink}
                 title={res.volumeInfo.title}
                 authors={res.volumeInfo.authors}
                 description={res.volumeInfo.description}
-                link={res.selfLink}
+                link={res.volumeInfo.infoLink}
                 image={res.volumeInfo.imageLinks.thumbnail}
               />
             ))}

@@ -21,5 +21,12 @@ router.post("/api/books", (req, res) => {
     res.json(newby);
   });
 });
+// add delete route
 
+router.delete("/api/books/:id", (req, res) => {
+    db.Books.findByIdAndDelete(req.params.id).then((deleted) => {
+      res.json(deleted);
+    });
+  });
+  
 module.exports = router;
