@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/api/books", (req, res) => {
+  //   res.json(req);
   db.Books.find({}).then((found) => {
     res.json(found);
   });

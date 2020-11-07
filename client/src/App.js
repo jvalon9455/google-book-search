@@ -1,15 +1,18 @@
-import Search from "./components/pages/Search";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Saved from "./components/pages/Saved";
+import Search from "./pages/Search";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Saved from "./pages/Saved";
+
 
 function App() {
   return (
     <div className="App">
-     <Router>
+      <Router>
+        {/* <Navbar /> */}
         <Switch>
-          <Route exact path="/search" component={Search} />
-          <Route exact path="/" component={Saved} />
+          <Route exact path="/" component={Search} />
+          <Route exact path="/save" component={Saved} />
         </Switch>
+        {/* <Footer /> */}
       </Router>
     </div>
   );
