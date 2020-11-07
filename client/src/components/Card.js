@@ -1,28 +1,16 @@
 import Axios from "axios";
 import React from "react";
 
-const SavedCard = (props) => {
+const Card = (props) => {
   const handleDelete = (e) => {
     const id = e.target.getAttribute("id");
     // console.log("clicked");
 
     Axios.delete(`/api/books/${id}`).then((res) => {
       console.log(res);
-      window.location.reload();
+      props.renderBooks();
     });
   };
-  //   async deleteTodo(id) {
-  //     await Axios.delete(`/api/todo/${id}`)
-  //     let todoListCopy = this.state.todoListItems
-  //     for (let i = 0; i < todoListCopy.length; i++) {
-  //       let todo = todoListCopy[i]
-  //       if (todo.id === id) {        ]
-  //         todoListCopy.splice(i, 1)  ]
-  //         break                      ]
-  //       }
-  //     }
-  //     this.setState({todoListItems: todoListCopy})]
-  //   }
 
   const handleView = () => {
     let path = props.link;
@@ -56,4 +44,4 @@ const SavedCard = (props) => {
   );
 };
 
-export default SavedCard;
+export default Card;

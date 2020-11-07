@@ -20,11 +20,13 @@ const Result = (props) => {
     });
   };
   const handleView = (e) => {
-    // axios.post("/api/books", (req, res) => {});
+    let path =state.link;
+    window.open(path);
   };
 
   return (
      <div style={{ border: "1px solid black", position: "relative" }}>
+       <img src={props.image} />
       <p>{props.title}</p>
       <p>{props.authors}</p>
       <p>{props.description}</p>

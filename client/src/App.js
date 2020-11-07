@@ -10,8 +10,8 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path="/" component={Search} />
-          <Route exact path="/save" component={Saved} />
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/" component={Saved} />
         </Switch>
         {/* <Footer /> */}
       </Router>
