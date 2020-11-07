@@ -32,6 +32,7 @@ const Card = (props) => {
               onClick={handleView}
               className="btn badge-pill btn-outline-dark mt-3">View</button>
             <button
+              id={props.id}
               onClick={handleDelete}
               className="btn badge-pill btn-outline-warning mt-3 ml-3">Delete</button>
           </div>
