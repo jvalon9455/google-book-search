@@ -1,10 +1,9 @@
-
-
+import Search from "./components/pages/Search";
 
 function App() {
   return (
     <div className="App">
-      <h1>Google Books</h1>
+      <Search />
     </div>
   );
 }
